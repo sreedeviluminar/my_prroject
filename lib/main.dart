@@ -1,15 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MaterialApp(
-          useInheritedMediaQuery: true, home: MyApp()), // Wrap your app
-    ),
+    MaterialApp(home: MyApp()),
   );
 }
 
@@ -17,7 +11,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      // backgroundColor: Colors.black,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+
+        ///setting background
+        //color: Colors.black,
+        decoration: const BoxDecoration(
+            //color: Colors.lightBlue
+            // image: DecorationImage(
+            //     fit: BoxFit.cover,
+            //     image: AssetImage("assets/images/img_1.png")
+            // )
+            gradient: LinearGradient(colors: [
+          Colors.purpleAccent,
+          Colors.indigo,
+          Colors.blue,
+          Colors.green,
+          Colors.yellow,
+          Colors.yellow,
+          Colors.red
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -30,20 +45,18 @@ class MyApp extends StatelessWidget {
               ),
               // Image.network(
               //     "https://images.unsplash.com/photo-1608145417898-a0eb7cc1cfc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"),
-               Text(
-                "MY APP",
-                style: GoogleFonts.lobsterTwo(
-                  color: Colors.deepOrange,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold
-                )
-                // style: TextStyle(
-                //   fontSize: 30,
-                //   color: Colors.deepOrange,
-                //   fontWeight: FontWeight.bold,
-                //   fontStyle: FontStyle.italic,
-                // ),
-              ),
+              Text("MY APP",
+                  style: GoogleFonts.lobsterTwo(
+                      color: Colors.deepOrange,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold)
+                  // style: TextStyle(
+                  //   fontSize: 30,
+                  //   color: Colors.deepOrange,
+                  //   fontWeight: FontWeight.bold,
+                  //   fontStyle: FontStyle.italic,
+                  // ),
+                  ),
             ],
           ),
         ),
