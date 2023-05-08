@@ -1,13 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'loginPage.dart';
 
 void main() {
   runApp(
     MaterialApp(home: MyApp()),
   );
 }
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();// to convert myapp which is currently immutable to a mutable state
+}
 
-class MyApp extends StatelessWidget {
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    Timer(Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginPage()));
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
