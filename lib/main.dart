@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'loginPage.dart';
+import 'package:my_prroject/statefulLogin.dart';
+import 'statelessloginPage.dart';
 
 void main() {
   runApp(
@@ -18,8 +19,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    Timer(Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginPage()));
+    Timer(Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginPage2()));
     });
     super.initState();
   }

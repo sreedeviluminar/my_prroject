@@ -20,7 +20,8 @@ class LoginPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset("assets/icons/easter.png", height: 200, width: 200),
+            Image.asset("assets/icons/easter.png",
+                height: 200, width: 200),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextField(
@@ -53,7 +54,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   ///fetching value from textfield using controller
                   String email = uname.text.trim();
-                  String pwd = pass.text.trim();
+                  String pwd   = pass.text.trim();
 
                   if (email != '' && pwd != '') {
                     if (username == email && password == pwd) {
