@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:my_prroject/home.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({Key? key}) : super(key: key);
@@ -8,7 +10,8 @@ class LoginPage2 extends StatefulWidget {
 }
 
 class _LoginPage2State extends State<LoginPage2> {
-  var formkey = GlobalKey<FormState>();  // to fetch the state of the form
+  var formkey = GlobalKey<FormState>(); // to fetch the state of the form
+  bool showpwd = true;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class _LoginPage2State extends State<LoginPage2> {
         title: Text("LOGIN STATEFUL"),
       ),
       body: Form(
-        key:formkey,
+        key: formkey,
         child: Column(
           children: [
             const Center(
@@ -44,24 +47,53 @@ class _LoginPage2State extends State<LoginPage2> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                decoration: const InputDecoration(
+                obscureText: showpwd,
+                //obscuringCharacter: '*',
+                decoration: InputDecoration(
                     hintText: "Password",
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.password),
-                    suffixIcon: Icon(Icons.visibility_off)),
-                validator: (password){
-                  if(password!.isEmpty || password.length < 6){
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if (showpwd) {
+                              showpwd = false;
+                            } else {
+                              showpwd = true;
+                            }
+                          });
+                        },
+                        icon: Icon(showpwd == true
+                            ? Icons.visibility_off
+                            : Icons.visibility))),
+
+                validator: (password) {
+                  if (password!.isEmpty || password.length < 6) {
                     return 'Not a valid Password';
-                  }else{
+                  } else {
                     return null;
                   }
                 },
               ),
             ),
-            ElevatedButton(onPressed: () {
-
-              final valid = formkey.currentState!.validate();
-            }, child: const Text("Login Here")),
+            ElevatedButton(
+                onPressed: () {
+                  final valid = formkey.currentState!.validate();
+                  if (valid) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: "Login Failed",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                        // timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  }
+                },
+                child: const Text("Login Here")),
             TextButton(onPressed: () {}, child: const Text("SignUp Here")),
           ],
         ),
