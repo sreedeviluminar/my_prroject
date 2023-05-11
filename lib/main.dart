@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_prroject/statefulLogin.dart';
 import 'home.dart';
-import 'statelessloginPage.dart';
 
 void main() {
   runApp(
-    MaterialApp(home: MyApp()),
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+        home: MyApp()),
   );
 }
 class MyApp extends StatefulWidget {

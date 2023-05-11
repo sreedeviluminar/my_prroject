@@ -6,6 +6,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("My Contacts"),
+        actions: [
+          Icon(Icons.search),
+          SizedBox(width: 10,),
+          Icon(Icons.camera_alt),
+
+          SizedBox(width: 10,),
+        ],
       ),
       body: ListView(
         children: [
