@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_prroject/home.dart';
+import 'package:my_prroject/registration.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _LoginPage2State extends State<LoginPage2> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 obscureText: showpwd,
-                //obscuringCharacter: '*',
+                obscuringCharacter: '#',
                 decoration: InputDecoration(
                     hintText: "Password",
                     border: OutlineInputBorder(),
@@ -66,7 +67,6 @@ class _LoginPage2State extends State<LoginPage2> {
                         icon: Icon(showpwd == true
                             ? Icons.visibility_off
                             : Icons.visibility))),
-
                 validator: (password) {
                   if (password!.isEmpty || password.length < 6) {
                     return 'Not a valid Password';
@@ -94,7 +94,16 @@ class _LoginPage2State extends State<LoginPage2> {
                   }
                 },
                 child: const Text("Login Here")),
-            TextButton(onPressed: () {}, child: const Text("SignUp Here")),
+            SizedBox(
+              height: 20,
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => RegistrationPage()));
+                },
+                child: const Text("SignUp Here")),
+
           ],
         ),
       ),
