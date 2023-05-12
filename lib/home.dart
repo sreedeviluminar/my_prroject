@@ -44,6 +44,8 @@ class HomePage extends StatelessWidget {
                 leading: const CircleAvatar(
                     backgroundImage: AssetImage("assets/images/img.png")),
                 trailing: Wrap(
+                //Row(
+                //   mainAxisSize: MainAxisSize.min,
                   children: const [
                     Icon(Icons.message),
                     SizedBox(
