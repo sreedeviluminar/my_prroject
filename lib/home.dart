@@ -24,7 +24,8 @@ class HomePage extends StatelessWidget {
                 //  leading: Icon(Icons.contacts_sharp) ,
                 leading: const CircleAvatar(
                     backgroundImage: AssetImage("assets/images/img.png")),
-                trailing: Wrap(
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: const [
                     Icon(Icons.message),
                     SizedBox(

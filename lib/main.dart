@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_prroject/Listview_builder.dart';
 import 'home.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     Timer(Duration(seconds: 1), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomePage()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>List_with_builder()));
     });
     super.initState();
   }
