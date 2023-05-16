@@ -56,11 +56,11 @@ class List_with_builder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        //centerTitle:true,
-        title: const Center(child: Text("List with Builder")),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   //centerTitle:true,
+      //   title: const Center(child: Text("List with Builder")),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)

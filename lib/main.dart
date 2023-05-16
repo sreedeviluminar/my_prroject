@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_prroject/List_with_separator.dart';
 import 'package:my_prroject/Listview_builder.dart';
 import 'home.dart';
 
@@ -9,20 +10,31 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: MyApp()),
+      home: MyApp(),
+      theme: ThemeData(
+        //  primarySwatch: Colors.teal
+          // primaryColor: Colors.teal[800],
+            colorScheme:
+              ColorScheme.fromSwatch().copyWith(primary: Color.fromARGB(245, 7, 94, 84))
+          ),
+      // darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
+    ),
   );
 }
+
 class MyApp extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();// to convert myapp which is currently immutable to a mutable state
+  State<MyApp> createState() =>
+      _MyAppState(); // to convert myapp which is currently immutable to a mutable state
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     Timer(Duration(seconds: 1), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>List_with_builder()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => List_with_separator()));
     });
     super.initState();
   }
