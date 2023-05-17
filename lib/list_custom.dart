@@ -33,20 +33,28 @@ class List_Custom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.custom(
-          childrenDelegate: SliverChildListDelegate(
-              // [
-              //   const Card(color: Colors.red,child: Center(child: Icon(Icons.add),),),
-              //   const Card(color: Colors.green,child: Center(child: Icon(Icons.add),),),
-              //   const Card(color: Colors.yellow,child: Center(child: Icon(Icons.add),),),
-              //   const Card(color: Colors.purple,child: Center(child: Icon(Icons.add),),)
-              // ]
-              List.generate(
-                  20,
-                  (index) => Card(
-                      color: colors[index],
-                      child: const Center(
-                        child: Icon(Icons.add),
-                      ))))),
+        // childrenDelegate: SliverChildListDelegate(
+        //     // [
+        //     //   const Card(color: Colors.red,child: Center(child: Icon(Icons.add),),),
+        //     //   const Card(color: Colors.green,child: Center(child: Icon(Icons.add),),),
+        //     //   const Card(color: Colors.yellow,child: Center(child: Icon(Icons.add),),),
+        //     //   const Card(color: Colors.purple,child: Center(child: Icon(Icons.add),),)
+        //     // ]
+        //     List.generate(
+        //         20,
+        //         (index) => Card(
+        //             color: colors[index],
+        //             child: const Center(
+        //               child: Icon(Icons.add),
+        //))))
+        childrenDelegate: SliverChildBuilderDelegate(
+            (context, index) => Card(
+                color: colors[index],
+                child: const Center(
+                  child: Icon(Icons.add),
+                )),
+            childCount: 10),
+      ),
     );
   }
 }
