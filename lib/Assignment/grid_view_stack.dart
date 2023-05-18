@@ -133,7 +133,7 @@ class GridViewStackScreen extends StatelessWidget {
                 left: 20,
                 child: Text(
                   contentList[index][1],
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w500),
