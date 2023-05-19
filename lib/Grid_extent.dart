@@ -37,7 +37,6 @@ class Grid_Extent extends StatelessWidget {
         maxCrossAxisExtent: 30,
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
-        childAspectRatio: 1,
         children: List.generate(
             20,
             (index) => Stack(
