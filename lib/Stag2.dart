@@ -41,7 +41,8 @@ class Stag2 extends StatelessWidget {
               (index) => StaggeredGridTile.count(
                     crossAxisCellCount: ccount[index],
                     mainAxisCellCount: 1,
-                    child: MyWidget(image: Image.asset(photo[index]),
+                    child: MyWidget(
+                      image: Image.asset(photo[index]),
                     bcolor: Colors.teal,),
                   )),
         ),
