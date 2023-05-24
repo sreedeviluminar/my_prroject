@@ -2,6 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+void main(){
+  runApp(MaterialApp(home: ImageSlide(),));
+}
 class ImageSlide extends StatelessWidget {
 
   @override
@@ -50,7 +53,17 @@ class ImageSlide extends StatelessWidget {
                   )
               ),
             )
-      ], options: options),
+      ], options: CarouselOptions(
+        autoPlay: true,
+        viewportFraction: 1,
+        height: 200,
+        enlargeCenterPage: true,
+        enableInfiniteScroll: true,
+        autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+        autoPlayAnimationDuration: const Duration(seconds: 1),
+
+      ),
+      ),
     );
   }
 }
