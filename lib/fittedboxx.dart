@@ -16,7 +16,7 @@ class FittedBoxEx extends StatelessWidget {
             alignment:Alignment.center ,
             child: Container(
               height: MediaQuery.of(context).size.height,
-              //width: 200,
+              width: MediaQuery.of(context).size.width,
               color: Colors.yellow,
               child: Row(
                 children: [
