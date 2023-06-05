@@ -17,11 +17,12 @@ class IntroScreen extends StatelessWidget {
         titleTextStyle: TextStyle(
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple),
         bodyTextStyle: TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.yellow),
+            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.orange),
         //imagePadding: EdgeInsets.all(20),
         boxDecoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.white, Colors.lightBlueAccent, Colors.white],
+                colors: [Colors.white, Colors.yellow, Colors.white],
+                //stops:[0.3,0.35,0.4] ,
                 begin: Alignment.bottomRight,
                 end: Alignment.centerRight)));
 
@@ -36,6 +37,7 @@ class IntroScreen extends StatelessWidget {
               "https://images.unsplash.com/photo-1685513733856-6770dd79a805?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"),
         ),
         PageViewModel(
+          decoration: pagedecoration,
             title: "Second Page",
             body:
                 "Introduction/Onboarding package for flutter app with some customizations possibilities",
@@ -43,6 +45,7 @@ class IntroScreen extends StatelessWidget {
               "https://plus.unsplash.com/premium_photo-1674939148553-9ca55be9b037?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
             )),
         PageViewModel(
+          decoration: pagedecoration,
           title: "Third Page",
           body:
               "Introduction/Onboarding package for flutter app with some customizations possibilities",
