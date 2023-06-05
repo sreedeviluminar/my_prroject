@@ -12,9 +12,23 @@ void main() {
 class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    PageDecoration pagedecoration = const PageDecoration(
+        titleTextStyle: TextStyle(
+            fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple),
+        bodyTextStyle: TextStyle(
+            fontSize: 15, fontWeight: FontWeight.w800, color: Colors.yellow),
+        imagePadding: EdgeInsets.all(20),
+        boxDecoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.white, Colors.lightBlueAccent, Colors.white],
+                begin: Alignment.bottomRight,
+                end: Alignment.centerRight)));
+
     return IntroductionScreen(
       pages: [
         PageViewModel(
+          decoration: pagedecoration,
           title: "First Page",
           body:
               "Introduction/Onboarding package for flutter app with some customizations possibilities",
@@ -61,7 +75,7 @@ class IntroScreen extends StatelessWidget {
       alignment: Alignment.bottomRight,
       child: Image.network(
         image,
-        width: 300,
+        width: 100,
       ),
     );
   }
