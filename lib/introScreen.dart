@@ -18,7 +18,7 @@ class IntroScreen extends StatelessWidget {
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple),
         bodyTextStyle: TextStyle(
             fontSize: 15, fontWeight: FontWeight.w800, color: Colors.yellow),
-        imagePadding: EdgeInsets.all(20),
+        //imagePadding: EdgeInsets.all(20),
         boxDecoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [Colors.white, Colors.lightBlueAccent, Colors.white],
@@ -72,10 +72,10 @@ class IntroScreen extends StatelessWidget {
 
   Widget introImage(String image) {
     return Align(
-      alignment: Alignment.bottomRight,
+      alignment: Alignment.center,
       child: Image.network(
         image,
-        width: 100,
+        width: 500,
       ),
     );
   }
