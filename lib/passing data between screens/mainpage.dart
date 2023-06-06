@@ -33,7 +33,6 @@ class ProductScreen extends StatelessWidget {
                   },
                 ))
             .toList(),
-
         ///2nd way
         // children: List.generate(
         //     products.length,      // to fetch total length of list
