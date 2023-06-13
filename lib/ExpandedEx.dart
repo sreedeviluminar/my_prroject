@@ -9,29 +9,13 @@ class ExpandedEx extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.height,
-        color: Colors.yellow,
-        child: const Row(
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Hello",
-              style: TextStyle(fontSize: 100),
-            ),
-            Icon(
-              Icons.account_box_sharp,
-              size: 100,
-            ),
-            Expanded(
-                child: Image(
-              image: AssetImage("assets/images/img.png"),
-              fit: BoxFit.cover,
-            ))
-          ],
-        ),
-      ),
+      body:Row(
+        children: [
+          Container(height:200,width:200,color: Colors.green,),
+          Container(height:100,width:100,color: Colors.red,),
+          Expanded(child: Container(height:50,width:50,color: Colors.yellow,))
+        ],
+      )
     );
   }
 }

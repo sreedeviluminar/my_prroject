@@ -14,15 +14,23 @@ void main() {
 }
 
 class ProductScreen extends StatelessWidget {
+
+  Map data(){
+    var value;
+    products.forEach((element) => value = element);
+    return value;
+  }
+
+   var values = {};
   @override
   Widget build(BuildContext context) {
+    values= data();
     return Scaffold(
       appBar: AppBar(
         title: Text("Shop Me"),
       ),
       body: ListView(
         padding: const EdgeInsets.all(15),
-
         ///1st way
         children: products.map((product) => ListTile(
                   leading: Image.network(product["image1"]), //here product
