@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 void main() {
-  runApp(MaterialApp(home: SimpleAnimation()));
+  runApp(MaterialApp(home: RiveeeAnimation()));
 }
 
-class SimpleAnimation extends StatelessWidget {
-  const SimpleAnimation({Key? key}) : super(key: key);
+class RiveeeAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
