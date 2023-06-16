@@ -14,7 +14,7 @@ class _StatefullPageState extends State<StatefullPage> {
   @override
   Widget build(BuildContext context) {
 
-    String? v1 = widget.v1;
+    String? v1 = widget.v1;  //widget - getter property to read data from another class
 
     return Scaffold(
       appBar: AppBar(
