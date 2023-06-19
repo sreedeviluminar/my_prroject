@@ -28,15 +28,15 @@ class _ProfileHomeState extends State<ProfileHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Profile"),
+        title: const Text("My Profile"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Text(
               "Welcome $username",
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
             ElevatedButton(
                 onPressed: () {
@@ -44,7 +44,7 @@ class _ProfileHomeState extends State<ProfileHome> {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => LoginPage()));
                 },
-                child: Text("LOGOUT"))
+                child: const Text("LOGOUT"))
           ],
         ),
       ),

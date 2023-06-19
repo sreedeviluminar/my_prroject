@@ -45,6 +45,7 @@ dependencies:
   webview_flutter: ^4.2.2
   google_maps_flutter: ^2.3.0
   shared_preferences: ^2.1.2
+  sqflite:
 
 
   # The following adds the Cupertino Icons font to your application.
