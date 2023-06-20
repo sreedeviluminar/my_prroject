@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
 // refresh the ui (means the list named contact)
 // when a new contact added/ delete/ update etc
   void refreshUi() async {
-    final data = await SQLHelper.getDatas();
+    final data = await SQLHelper.getDatas(); // data is list of map values
     setState(() {
       contact = data;
       isLoading = false;
