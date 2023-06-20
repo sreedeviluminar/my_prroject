@@ -21,16 +21,24 @@ class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> contact = [];
 
   @override
+  void initState() {
+    refreshUi();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("My Contacts")),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(itemBuilder: (context, index) {
+          : ListView.builder(
+          itemCount:  contact.length,
+          itemBuilder: (context, index) {
               return Card(
                 child: ListTile(
-                  title: Text(""),
-                  subtitle: Text(""),
+                  title: Text(contact[index]['cname']),
+                  subtitle: Text(contact[index]['cnumber']),
                   trailing: SizedBox(
                     width: 100,
                     child: Row(
@@ -88,8 +96,8 @@ class _HomePageState extends State<HomePage> {
                         if (id == null) {
                           await createContact();
                         }
-                        if(id != null){
-                         //await updateContact(id);
+                        if (id != null) {
+                          //await updateContact(id);
                         }
                         namecontroller.text = "";
                         numcontroller.text = "";
@@ -103,7 +111,19 @@ class _HomePageState extends State<HomePage> {
             ));
   }
 
+  // to add new contact to sqflite
   Future<void> createContact() async {
     await SQLHelper.create_contact(namecontroller.text, numcontroller.text);
+    refreshUi();
+  }
+
+// refresh the ui (means the list named contact)
+// when a new contact added/ delete/ update etc
+  void refreshUi() async {
+    final data = await SQLHelper.getDatas();
+    setState(() {
+      contact = data;
+      isLoading = false;
+    });
   }
 }
