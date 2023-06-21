@@ -33,24 +33,32 @@ class _HomePageState extends State<HomePage> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
-          itemCount:  contact.length,
-          itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  title: Text(contact[index]['cname']),
-                  subtitle: Text(contact[index]['cnumber']),
-                  trailing: SizedBox(
-                    width: 100,
-                    child: Row(
-                      children: [
-                        IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
-                      ],
+              itemCount: contact.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    title: Text(contact[index]['cname']),
+                    subtitle: Text(contact[index]['cnumber']),
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                showSheet(contact[index]['id']);
+                              },
+                              icon: Icon(Icons.edit)),
+                          IconButton(
+                              onPressed: () {
+                                deleteContact(contact[index]['id']);
+                              },
+                              icon: Icon(Icons.delete)),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showSheet(null),
         child: const Icon(Icons.add),
@@ -62,6 +70,11 @@ class _HomePageState extends State<HomePage> {
   final numcontroller = TextEditingController();
 
   void showSheet(int? id) async {
+    if (id != null) {
+      final existingData = contact.firstWhere((element) => element['id'] == id);
+      namecontroller.text = existingData['cname'];
+      numcontroller.text = existingData['cnumber'];
+    }
     showModalBottomSheet(
         elevation: 5,
         isScrollControlled: true,
@@ -97,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                           await createContact();
                         }
                         if (id != null) {
-                          //await updateContact(id);
+                          await updateContact(id);
                         }
                         namecontroller.text = "";
                         numcontroller.text = "";
@@ -125,5 +138,18 @@ class _HomePageState extends State<HomePage> {
       contact = data;
       isLoading = false;
     });
+  }
+
+  Future<void> updateContact(int id) async {
+    await SQLHelper.updateContact(id, namecontroller.text, numcontroller.text);
+    refreshUi();
+  }
+
+  void deleteContact(int id) async {
+    await SQLHelper.deleteContact(id);
+    refreshUi();
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(
+         content: Text('Successfully Deleted')));
   }
 }
