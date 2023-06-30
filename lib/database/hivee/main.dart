@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox('todo_box');
+  await Hive.openBox('todo_box'); // box name
   runApp(MaterialApp(home: CRUD_hive()));
 }
 
