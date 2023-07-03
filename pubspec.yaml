@@ -47,7 +47,8 @@ dependencies:
   shared_preferences: ^2.1.2
   sqflite:
   hive:
-  hive_flutter: 
+  hive_flutter:
+  email_validator:
 
 
   # The following adds the Cupertino Icons font to your application.
