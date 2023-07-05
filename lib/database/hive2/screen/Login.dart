@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:my_prroject/database/hive2/database/hivedb.dart';
 import 'package:my_prroject/database/hive2/model/user_model.dart';
 import 'Home.dart';
 import 'Registration.dart';
 
-void main(){
-
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserAdapter());
+  await Hive.openBox<User>('userdata');
+  runApp(GetMaterialApp(
+    home: Login(),
+  ));
 }
+
 class Login extends StatelessWidget {
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
@@ -40,10 +49,12 @@ class Login extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          ElevatedButton(onPressed: () async{
-            final users = await HiveDB.instance.getUser();
-            checkUserExit(users);
-          }, child: const Text("Login")),
+          ElevatedButton(
+              onPressed: () async {
+                final users = await HiveDB.instance.getUser();
+                checkUserExit(users);
+              },
+              child: const Text("Login")),
           TextButton(
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => HiveRegistration())),
@@ -55,23 +66,23 @@ class Login extends StatelessWidget {
 
   Future<void> checkUserExit(List<User> users) async {
     final lemail = email.text.trim();
-    final lpass  = pass.text.trim();
+    final lpass = pass.text.trim();
     bool userFound = false;
-    if(lemail != "" && lpass != ""){
+    if (lemail != "" && lpass != "") {
       await Future.forEach(users, (singleuser) {
-        if(lemail == singleuser.email  && lpass == singleuser.password){
+        if (lemail == singleuser.email && lpass == singleuser.password) {
           userFound = true;
-        }else{
+        } else {
           userFound = false;
         }
       });
-      if(userFound == true){
-        Get.offAll(()=>Home(email:lemail));
+      if (userFound == true) {
+        Get.offAll(() => Home(email: lemail));
         Get.snackbar("Success", "Logined as $lemail");
-      }else{
+      } else {
         Get.snackbar("error", "Login Failed ,No user Exist!!!");
       }
-    } else{
+    } else {
       Get.snackbar("error", "Please Fill the fields");
     }
   }
