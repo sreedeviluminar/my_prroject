@@ -5,6 +5,10 @@ class Home extends StatelessWidget {
   Home({required this.email});
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Text("Welcome $email",style: TextStyle(fontSize:30),),
+      ),
+    );
   }
 }
