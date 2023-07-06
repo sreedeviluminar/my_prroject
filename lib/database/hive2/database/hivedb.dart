@@ -2,9 +2,7 @@ import 'package:hive/hive.dart';
 import '../model/user_model.dart';
 
 class HiveDB{
-
-  HiveDB._internal();
-
+  HiveDB._internal();    // named constructor
   static HiveDB instance = HiveDB._internal();
 
   factory HiveDB(){ // factory constructor for creating Singleton Class
