@@ -76,15 +76,31 @@ class _FireBase_StoreeeState extends State<FireBase_Storeee> {
     );
   }
 
-  loadData() {}
+ Future<List<Map<String,dynamic>>> loadData() async{
+   List<Map<String,dynamic>> images =[];
+
+   final ListResult result = await storage.ref().list();
+   final List<Reference> allfiles = result.items;
+   await Future.forEach(allfiles, (sfile) async{
+     final String url = await sfile.getDownloadURL();
+     final FullMetadata metadata = await sfile.getMetadata();
+
+     images.add({
+       'url': url,
+       'path': sfile.fullPath,
+       'uploaded_by':metadata.customMetadata?['uploaded_by']?? "Nobody",
+       'description':metadata.customMetadata?['description']??"Nodescription"
+     });
+   });
+   return images;
+ }
 
   Future<void> uploadData(String imagepath) async {
     final picker = ImagePicker();
     XFile? pickedImage;
     try {
       pickedImage = await picker.pickImage(
-          source: imagepath == 'camera' ? ImageSource.camera : ImageSource
-              .gallery, maxWidth: 1920);
+          source: imagepath == 'camera' ? ImageSource.camera : ImageSource.gallery, maxWidth: 1920);
       final String fileName = path.basename(pickedImage!.path);
       File imageFile = File(pickedImage.path);
       try {
