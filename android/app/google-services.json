@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "810919419862",
+    "project_id": "verdant-doodad-389904",
+    "storage_bucket": "verdant-doodad-389904.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810919419862:android:70534a4f8437cfbaca0e77",
+        "android_client_info": {
+          "package_name": "com.marchproject.my_prroject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810919419862-j648vmsmegk17mimd4mnja2iijethbou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjuBn6iUcfAto3Lc_5wv0J78H7P8BCbFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810919419862-j648vmsmegk17mimd4mnja2iijethbou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
