@@ -50,6 +50,7 @@ class _FireHomeState extends State<FireHome> {
             ),
             Expanded(
                 child: FutureBuilder(
+                  // if firebase connection success load data
                   future: loadData(),
                   builder: (context,
                       AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
@@ -64,7 +65,7 @@ class _FireHomeState extends State<FireHome> {
                                 title:  Text(image['uploaded_by']),
                                 subtitle:  Text(image['description']),
                                 trailing: IconButton(
-                                  onPressed: ()=>delete(image['path']),
+                                  onPressed: ()=> delete(image['path']),
                                   icon: const Icon(Icons.delete),
                                 ),
                               ),
@@ -85,10 +86,10 @@ class _FireHomeState extends State<FireHome> {
   Future<void> upload(String imageip) async {
     final picker = ImagePicker();
     XFile? pickedImage;
+
     try {
       pickedImage = await picker.pickImage(
-          source:
-          imageip == 'camera' ? ImageSource.camera : ImageSource.gallery,
+          source: imageip == 'camera' ? ImageSource.camera : ImageSource.gallery,
           maxWidth: 1920);
       final String fileName = path.basename(pickedImage!.path);
       File imagefile = File(pickedImage.path);
@@ -101,7 +102,9 @@ class _FireHomeState extends State<FireHome> {
               'description': 'Some description....'
             }));
         //refresh ui
-        setState(() {});
+        setState(() {
+
+        });
       } on FirebaseException catch (error) {
         if (kDebugMode) {
           print(error);
