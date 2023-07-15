@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_prroject/firebase%20exaples/email%20pass%20authe/FireHelper.dart';
 import 'package:my_prroject/firebase%20exaples/email%20pass%20authe/login.dart';
@@ -7,14 +5,6 @@ import 'package:my_prroject/firebase%20exaples/email%20pass%20authe/login.dart';
 import '../../database/hive2/screen/Home.dart';
 import 'home.dart';
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  // to get the currently logined in user
-  User? user =FirebaseAuth.instance.currentUser;
-  runApp(MaterialApp(home: user == null ? LoginFire(): HomeFire()));
-
-}
 class RegistrationFire extends StatefulWidget {
   const RegistrationFire({super.key});
 
