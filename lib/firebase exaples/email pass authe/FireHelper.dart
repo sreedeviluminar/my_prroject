@@ -27,4 +27,9 @@ class FireHelper {
       return e.message;
     }
   }
+
+  //Sign
+Future<void> signOut() async{
+     await auth.signOut();
+}
 }
