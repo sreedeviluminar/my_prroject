@@ -97,7 +97,7 @@ class Home extends StatelessWidget {
           ),
           MaterialButton(
             color: MyColors.prColor,
-            onPressed: () => tryAgain(context), // to check the internet is connected
+            onPressed: () => _materialOnTapButton(context),// to check the internet is connected
             child: const Text(
               "Try Again",
               style: TextStyle(color: Colors.white,
@@ -108,14 +108,13 @@ class Home extends StatelessWidget {
       ),
     );
   }
-
-  void tryAgain(BuildContext context) async {
-      if (await InternetConnectionChecker().hasConnection == true)
-      {
-        controller.getposts();
-      } else {
-
-      }
+  /// onTap Func of "Try Again Button"
+  void _materialOnTapButton(BuildContext context) async {
+    if (await InternetConnectionChecker().hasConnection == true) {
+      controller.getposts();
+    } else {
+      showCustomSnackBar(context);
+    }
   }
 
  FloatingActionButton  _buildFab() {
