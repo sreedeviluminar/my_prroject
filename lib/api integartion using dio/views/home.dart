@@ -70,8 +70,7 @@ class Home extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
-                      child: Text(controller.post[index].id
-                          .toString()), // id from the list named post
+                      child: Text(controller.post[index].id.toString()), // id from the list named post
                     ),
                   ),
                   title: Text(
@@ -111,10 +110,11 @@ class Home extends StatelessWidget {
   }
 
   void tryAgain(BuildContext context) async {
-      if (await InternetConnectionChecker().hasConnection == true) {
+      if (await InternetConnectionChecker().hasConnection == true)
+      {
         controller.getposts();
       } else {
-      
+
       }
   }
 
@@ -124,6 +124,8 @@ class Home extends StatelessWidget {
       controller.ScrollUp():
       controller.ScrolltoDown();
     }, backgroundColor: MyColors.prColor,
-    child: FaIcon(controller.isListViewScrolltoDown.value? FontAwesomeIcons.arrowUp:FontAwesomeIcons.arrowDown),);
+    child:
+    FaIcon(controller.isListViewScrolltoDown.value?
+    FontAwesomeIcons.arrowUp:FontAwesomeIcons.arrowDown),);
  }
 }

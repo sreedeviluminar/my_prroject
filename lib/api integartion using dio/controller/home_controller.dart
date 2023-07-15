@@ -24,8 +24,7 @@ class HomeController extends GetxController {
   getposts() async {
     isInternetConnected();
     isLoading.value = true;
-    var response = await DioService()
-        .getMethod(url); // calling function from service class
+    var response = await DioService().getMethod(url); // calling function from service class
     if (response.statusCode == 200) {
       response.data.forEach((element) {
         post.add(PostModel.fromJson(element));
