@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_prroject/firebase%20exaples/email%20pass%20authe/home.dart';
+import 'package:my_prroject/firebase%20exaples/email%20pass%20authe/registration.dart';
 import 'FireHelper.dart';
 
 void main() async {
@@ -60,7 +61,7 @@ class _LoginFireState extends State<LoginFire> {
           TextButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => LoginFire()));
+                    .push(MaterialPageRoute(builder: (context) => RegistrationFire()));
               },
               child: Text("Not a user ? register here!!"))
         ],
