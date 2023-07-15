@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "810919419862-j648vmsmegk17mimd4mnja2iijethbou.apps.googleusercontent.com",
+          "client_id": "810919419862-cp5b2edpl893sbvsfqg7pb4vs7fhkc32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marchproject.my_prroject",
+            "certificate_hash": "594681038817c9ef12b522a29f066788863a7f3c"
+          }
+        },
+        {
+          "client_id": "810919419862-ottlj52ruttttha92tjk7nlqb4u546d3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

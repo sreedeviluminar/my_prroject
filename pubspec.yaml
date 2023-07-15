@@ -62,8 +62,21 @@ dependencies:
   image_picker:
   path:
 
-  #for firebase auth
+  #for firebase auth email and password
   firebase_auth:
+  #for firebase google signin
+  #firebase_auth:
+  google_sign_in:
+
+  #dependencies for api using dio
+  #get:
+  #lottie:
+  #font_awesome_flutter:
+  dio:
+  internet_connection_checker:
+  top_snackbar_flutter:
+  scrollable_positioned_list:
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -96,6 +109,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
+    - assets/
     - assets/images/
     - assets/animation/
     - assets/shopping cart/
