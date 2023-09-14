@@ -67,6 +67,10 @@ dependencies:
   #for firebase google signin
   #firebase_auth:
   google_sign_in:
+  #phone auth
+  intl_phone_field:
+  #crud
+  cloud_firestore:
 
   #dependencies for api using dio
   #get:
